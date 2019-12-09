@@ -1,0 +1,12 @@
+div.product-container {
+    border: 1px solid;
+    padding: 5px;
+    margin-bottom: 3px;
+}
+div h3 {
+    margin-top:0;   
+}
+.green {
+    background-color: lightgrey;
+    color: green
+}
