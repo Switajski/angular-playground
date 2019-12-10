@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ProductService } from '../product.service';
 
 export interface Product {
   name: string;
@@ -26,17 +27,25 @@ export interface Product {
   </label>
   <button (click)="addSome()" >add</button>`,
 })
-export class ProductListComponent {
-  products: Product[] = [
-    { id: 1, name: 'apple', price: 0.5 },
-    { id: 2, name: 'banana', price: 0.5 },
-    { id: 3, name: 'clementine', price: 0.7 }
-  ];
+export class ProductListComponent implements OnInit {
+  products: Product[];
   editing: Product;
 
-  addSome() {
-    this.products.push(this.editing)
+  constructor(private productService: ProductService) {
   }
+  ngOnInit(): void {
+    this.getProducts();
+  }
+
+  getProducts(): void {
+    this.productService.getProducts()
+      .subscribe(p => this.products = p);
+  }
+
+  addSome() {
+    this.productService.addProduct(this.editing);
+  }
+
   onSelect(product: Product) {
     this.editing = product;
   }
