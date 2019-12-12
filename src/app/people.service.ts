@@ -1,7 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import MessageService from './message.service';
-import { Observable, of } from 'rxjs';
+import { Observable, throwError, of } from 'rxjs';
+import { catchError, map, tap } from 'rxjs/operators';
 
 export interface Something { name: string; }
 export interface Result { results: Something[]; }
@@ -10,21 +11,23 @@ export interface Result { results: Something[]; }
   providedIn: 'root'
 })
 export class PeopleService {
-  people: Something[];
 
   constructor(
     private messageService: MessageService,
     private httpClient: HttpClient) {
-    this.httpClient.get('https://swapi.co/api/people')
-      .subscribe(
-        (r: Result) => {
-          this.people = r.results;
-          console.log(this.people);
-        },
-        e => messageService.add(e.message));
   }
 
   getPeople(): Observable<Something[]> {
-    return of(this.people);
+    return this.httpClient.get<Result>('https://swapi.co/api/people/').pipe(
+      map(req => req.results),
+      catchError(this.handleError)
+    );
   }
+
+  private handleError(err: HttpErrorResponse): Observable<Something[]> {
+    const msg = err.error instanceof ErrorEvent ? err.error.message : `Server returned ${err.status}`;
+    this.messageService.add(msg);
+    return throwError(msg);
+  }
+
 }
