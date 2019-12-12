@@ -1,8 +1,11 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
+<div class="container">
+  <div style="text-align:center">
+    <h1>Welcome to {{ title }}!</h1>
+  </div>
+  <a routerLinkActive="active" routerLink="/login">Login</a> |
+  <a routerLinkActive="active" routerLink="/people">People</a> |
+  <a routerLinkActive="active" routerLink="/products">Products</a>
+  <router-outlet></router-outlet>
 </div>
-<app-product-list></app-product-list>
 <app-messages></app-messages>
