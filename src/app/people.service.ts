@@ -10,10 +10,14 @@ export interface Result { results: Something[]; }
 @Injectable({
   providedIn: 'root'
 })
+/**
+ * Playground for rest calls - especially with loading indicator
+ * For every HTTP Requests here a solution with a interceptor: https://stackoverflow.com/questions/49385369/angular-show-spinner-for-every-http-request-with-very-less-code-changes
+ * 
+ */
 export class PeopleService {
 
   people: Something[];
-  counting: number;
 
   constructor(
     private messageService: MessageService,

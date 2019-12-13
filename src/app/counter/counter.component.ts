@@ -6,16 +6,13 @@ import { CounterService } from '../counter.service';
   templateUrl: './counter.component.html',
   styleUrls: ['./counter.component.scss']
 })
-export class CounterComponent implements OnInit, OnDestroy {
+export class CounterComponent implements OnInit {
   count: number;
   constructor(private counterService: CounterService) {
   }
 
   ngOnInit() {
-    this.counterService.getCounter().subscribe(c => this.count = c)
+    this.counterService.getCounter().subscribe(c => this.count = c);
   }
 
-  ngOnDestroy(): void {
-    this.counterService.dispose();
-  }
 }
