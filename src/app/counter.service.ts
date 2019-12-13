@@ -1,32 +1,26 @@
 import { Injectable } from '@angular/core';
-import { of, Observable } from 'rxjs';
+import { Observable, of, Subject } from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
 })
 export class CounterService {
     counter = 0;
+    counter$ = new Subject<number>();
 
     constructor() {
         console.log('starting counter service');
-        this.startInterval()
+        this.startInterval();
     }
 
     startInterval() {
         setInterval(() => {
-            this.counter++;
+            this.counter$.next(this.counter++)
             console.log(this.counter);
         }, 1000);
     }
 
     getCounter(): Observable<number> {
-        return new Observable(subscribe => {
-            const oldState = this.counter;
-            setInterval(() => {
-                if (oldState !== this.counter) {
-                    subscribe.next(this.counter);
-                }
-            });
-        })
+        return this.counter$.asObservable();
     }
 }
