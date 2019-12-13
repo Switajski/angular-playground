@@ -13,6 +13,7 @@ export interface Result { results: Something[]; }
 export class PeopleService {
 
   people: Something[];
+  counting: number;
 
   constructor(
     private messageService: MessageService,

@@ -12,6 +12,7 @@ import { MessagesComponent } from './messages/messages.component';
 import { PeopleListComponent } from './people-list/people-list.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component'
 import { HttpClientModule } from '@angular/common/http';
+import { CounterComponent } from './counter/counter.component';
 
 const appRoutes: Routes = [
   {
@@ -26,6 +27,10 @@ const appRoutes: Routes = [
     path: 'products',
     component: ProductListComponent,
     data: { title: 'Product List' }
+  },
+  {
+    path: 'counter',
+    component: CounterComponent
   },
   {
     path: '',
@@ -46,7 +51,8 @@ const appRoutes: Routes = [
     EditProductDetailComponent,
     MessagesComponent,
     PeopleListComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    CounterComponent
   ],
   imports: [
     BrowserModule,
