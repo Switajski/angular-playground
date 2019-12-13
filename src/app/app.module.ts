@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms'
 import { RouterModule, Routes } from '@angular/router';
 
+import { GraphQLModule } from './graphql.module';
 
 import { AppComponent } from './app.component';
 import { ProductListComponent } from './product-list/product-list.component'
@@ -13,6 +14,7 @@ import { PeopleListComponent } from './people-list/people-list.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component'
 import { HttpClientModule } from '@angular/common/http';
 import { CounterComponent } from './counter/counter.component';
+import { FilmComponent } from './film/film.component';
 
 const appRoutes: Routes = [
   {
@@ -27,6 +29,10 @@ const appRoutes: Routes = [
     path: 'products',
     component: ProductListComponent,
     data: { title: 'Product List' }
+  },
+  {
+    path: 'films',
+    component: FilmComponent
   },
   {
     path: 'counter',
@@ -52,13 +58,15 @@ const appRoutes: Routes = [
     MessagesComponent,
     PeopleListComponent,
     PageNotFoundComponent,
-    CounterComponent
+    CounterComponent,
+    FilmComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    GraphQLModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -5,7 +5,6 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
 import { MessagesComponent } from './messages/messages.component';
 import { EditProductDetailComponent } from './product-detail/edit-product-detail.component';
 import { FormsModule } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
