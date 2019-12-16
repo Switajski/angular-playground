@@ -6,6 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { GraphQLModule } from './graphql.module';
 
 import { AppComponent } from './app.component';
+import { MatSliderModule } from '@angular/material/slider';
 import { ProductListComponent } from './product-list/product-list.component'
 import { ProductDetailComponent } from './product-detail/product-detail.component'
 import { EditProductDetailComponent } from './product-detail/edit-product-detail.component';
@@ -16,6 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CounterComponent } from './counter/counter.component';
 import { FilmComponent } from './film/film.component';
 import { PlanetComponent } from './planet/planet.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const appRoutes: Routes = [
   {
@@ -72,7 +74,9 @@ const appRoutes: Routes = [
     FormsModule,
     HttpClientModule,
     RouterModule.forRoot(appRoutes),
-    GraphQLModule
+    GraphQLModule,
+    BrowserAnimationsModule,
+    MatSliderModule
   ],
   providers: [],
   bootstrap: [AppComponent]
