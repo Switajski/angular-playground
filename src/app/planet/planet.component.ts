@@ -6,25 +6,29 @@ import { Observable, of } from 'rxjs'
 import { map, catchError, tap } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 
-
 import gql from 'graphql-tag';
 import MessageService from '../message.service';
 
-
 @Component({
   selector: 'app-planet',
-  template: `<div *ngIf="planet$ | async as planet ">
-    <h3> Planet {{ planet.name }}</h3>
-    <div *ngIf="image$ | async as image">
-    <img src={{image}} />
+  template: `<mat-card *ngIf="planet$ | async as planet ">
+  <h3> Planet {{ planet.name }}</h3>
+  <div class="card">
+    <div>
+      <div *ngIf="image$ | async as image">
+      <img src={{image}} />
+      </div>
     </div>
-    <p>climate: {{planet.climate}}</p>
-    <p>terrain: {{planet.terrain}}</p>
-    <p>diameter: {{planet.diameter}}</p>
-    <p>films: <ul>
-    <li *ngFor="let film of planet.films">{{film.title}}</li>
-    </ul>
-    </div > `,
+    <div>
+      <p>climate: {{planet.climate}}</p>
+      <p>terrain: {{planet.terrain}}</p>
+      <p>diameter: {{planet.diameter}}</p>
+      <p>films: <ul>
+      <li *ngFor="let film of planet.films">{{film.title}}</li>
+      </ul>
+    </div>
+    </div > 
+    </mat-card>`,
   styleUrls: ['./planet.component.scss']
 })
 export class PlanetComponent implements OnInit {

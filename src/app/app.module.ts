@@ -48,7 +48,7 @@ const appRoutes: Routes = [
   },
   {
     path: '',
-    redirectTo: '/people',
+    redirectTo: '/films',
     pathMatch: 'full'
   },
   {

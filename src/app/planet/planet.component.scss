@@ -1,3 +1,13 @@
 img {
-  height: 400px;
+  max-width: 100%;
+}
+
+div.card {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card > * {
+  flex: 1 1 300px;
+  padding: 10px;
 }
