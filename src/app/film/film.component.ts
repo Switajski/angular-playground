@@ -14,6 +14,13 @@ import { Film, Query } from './types';
       <li *ngFor="let film of films | async">
         {{film.title}} by {{film.director}} 
         from {{film.releaseDate}}
+        <br />
+        PLANETS:
+        <ul>
+          <li *ngFor="let planet of film.planets">
+          <a routerLink="/planet/{{planet.name}}">{{planet.name}}</a>
+          </li>
+        </ul>
       </li>
     </ul>
   `
@@ -27,10 +34,12 @@ export class FilmComponent implements OnInit {
       query: gql`{
         allFilms {
           releaseDate
-          producers
           episodeId
           title
           director
+          planets {
+            name
+          }
       }}`,
     })
       .valueChanges

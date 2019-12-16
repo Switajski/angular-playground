@@ -15,6 +15,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { HttpClientModule } from '@angular/common/http';
 import { CounterComponent } from './counter/counter.component';
 import { FilmComponent } from './film/film.component';
+import { PlanetComponent } from './planet/planet.component';
 
 const appRoutes: Routes = [
   {
@@ -33,6 +34,10 @@ const appRoutes: Routes = [
   {
     path: 'films',
     component: FilmComponent
+  },
+  {
+    path: 'planet/:id',
+    component: PlanetComponent
   },
   {
     path: 'counter',
@@ -59,7 +64,8 @@ const appRoutes: Routes = [
     PeopleListComponent,
     PageNotFoundComponent,
     CounterComponent,
-    FilmComponent
+    FilmComponent,
+    PlanetComponent
   ],
   imports: [
     BrowserModule,
