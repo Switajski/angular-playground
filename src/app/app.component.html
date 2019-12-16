@@ -1,14 +1,26 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div class="container">
-  <div style="text-align:center">
-    <h1>{{ title | uppercase }}</h1>
-  </div>
-  <mat-slider min="1" max="100" step="1" value="1"></mat-slider>
-  <a routerLinkActive="active" routerLink="/login">Login</a> |
-  <a routerLinkActive="active" routerLink="/people">People</a> |
-  <a routerLinkActive="active" routerLink="/counter">Counter</a> |
-  <a routerLinkActive="active" routerLink="/products">Products</a> |
-  <a routerLinkActive="active" routerLink="/films">Films</a>
+  <mat-toolbar
+    ><span class="space-right">{{ title | uppercase }}</span>
+    <mat-chip-list>
+      <mat-chip
+        routerLinkActive="active"
+        selected
+        color="accent"
+        routerLink="/login"
+      >
+        Login</mat-chip
+      >
+      <mat-chip routerLinkActive="active" routerLink="/people">People</mat-chip>
+      <mat-chip routerLinkActive="active" routerLink="/counter">
+        Counter
+      </mat-chip>
+      <mat-chip routerLinkActive="active" routerLink="/products">
+        Products
+      </mat-chip>
+      <mat-chip routerLinkActive="active" routerLink="/films">Films</mat-chip>
+    </mat-chip-list>
+  </mat-toolbar>
   <router-outlet></router-outlet>
 </div>
 <app-messages></app-messages>

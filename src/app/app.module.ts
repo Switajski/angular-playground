@@ -1,12 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms'
 import { RouterModule, Routes } from '@angular/router';
 
 import { GraphQLModule } from './graphql.module';
+import { MaterialModule } from './material.module';
 
 import { AppComponent } from './app.component';
-import { MatSliderModule } from '@angular/material/slider';
 import { ProductListComponent } from './product-list/product-list.component'
 import { ProductDetailComponent } from './product-detail/product-detail.component'
 import { EditProductDetailComponent } from './product-detail/edit-product-detail.component';
@@ -71,12 +72,13 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     FormsModule,
     HttpClientModule,
     RouterModule.forRoot(appRoutes),
     GraphQLModule,
+    MaterialModule,
     BrowserAnimationsModule,
-    MatSliderModule
   ],
   providers: [],
   bootstrap: [AppComponent]
