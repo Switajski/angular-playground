@@ -9,3 +9,15 @@ body {
   height: 100%;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+ul {
+  margin-top: 0;
+}
+li {
+  list-style-type: none;
+}
+
+// TODO: use primary from theme - but how?
+a {
+  color: #ce93d8;
+  text-decoration: none;
+}

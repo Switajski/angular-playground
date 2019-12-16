@@ -14,7 +14,7 @@ import MessageService from '../message.service';
   template: `<mat-card *ngIf="planet$ | async as planet ">
   <h3> Planet {{ planet.name }}</h3>
   <div class="card">
-    <div>
+    <div class="double">
       <div *ngIf="image$ | async as image">
       <img src={{image}} />
       </div>
@@ -27,7 +27,7 @@ import MessageService from '../message.service';
       <li *ngFor="let film of planet.films">{{film.title}}</li>
       </ul>
     </div>
-    </div > 
+    </div> 
     </mat-card>`,
   styleUrls: ['./planet.component.scss']
 })
