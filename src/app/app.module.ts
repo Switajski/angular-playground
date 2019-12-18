@@ -19,6 +19,7 @@ import { CounterComponent } from './counter/counter.component';
 import { FilmComponent } from './film/film.component';
 import { PlanetComponent } from './planet/planet.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import RomanizePipe from './RomanizePipe'
 
 const appRoutes: Routes = [
   {
@@ -68,7 +69,8 @@ const appRoutes: Routes = [
     PageNotFoundComponent,
     CounterComponent,
     FilmComponent,
-    PlanetComponent
+    PlanetComponent,
+    RomanizePipe
   ],
   imports: [
     BrowserModule,

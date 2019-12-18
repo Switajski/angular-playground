@@ -9,19 +9,20 @@ import { Film, Query } from './types';
 
 @Component({
   selector: 'app-list',
-  template: `
-  <h3>Films</h3>
-      <mat-card class="h-spaced" *ngFor="let film of films | async">
-        <p>{{film.title}} by {{film.director}} 
-        from {{film.releaseDate}}</p>
-        Occuring Planets:
-        <ul>
-          <li *ngFor="let planet of film.planets">
-          <a routerLink="/planet/{{planet.name}}">{{planet.name}}</a>
-          </li>
-        </ul>
-      </mat-card>
-  `,
+  template: `<h3>Films</h3>
+  <div class="flex">
+    <mat-card class="h-spaced" *ngFor="let film of films | async">
+      <p>{{film.episodeId | romanize}} {{film.title}} <br/>
+      by {{film.director}} <br/>
+      from {{film.releaseDate | date: "yyyy"}}</p>
+      Occuring Planets:
+      <ul>
+        <li *ngFor="let planet of film.planets">
+        <a routerLink="/planet/{{planet.name}}">{{planet.name}}</a>
+        </li>
+      </ul>
+    </mat-card>
+  <div>`,
   styleUrls: ['./film.component.scss']
 })
 export class FilmComponent implements OnInit {
