@@ -2,10 +2,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms'
-import { RouterModule, Routes } from '@angular/router';
 
 import { GraphQLModule } from './graphql.module';
 import { MaterialModule } from './material.module';
+import { RootRouterModule } from './root-router.module';
 
 import { AppComponent } from './app.component';
 import { ProductListComponent } from './product-list/product-list.component'
@@ -20,43 +20,6 @@ import { FilmComponent } from './film/film.component';
 import { PlanetComponent } from './planet/planet.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import RomanizePipe from './RomanizePipe'
-
-const appRoutes: Routes = [
-  {
-    path: 'people',
-    component: PeopleListComponent
-  },
-  {
-    path: 'product/:id',
-    component: ProductDetailComponent
-  },
-  {
-    path: 'products',
-    component: ProductListComponent,
-    data: { title: 'Product List' }
-  },
-  {
-    path: 'films',
-    component: FilmComponent
-  },
-  {
-    path: 'planet/:id',
-    component: PlanetComponent
-  },
-  {
-    path: 'counter',
-    component: CounterComponent
-  },
-  {
-    path: '',
-    redirectTo: '/films',
-    pathMatch: 'full'
-  },
-  {
-    path: '**',
-    component: PageNotFoundComponent
-  }
-];
 
 @NgModule({
   declarations: [
@@ -77,10 +40,10 @@ const appRoutes: Routes = [
     CommonModule,
     FormsModule,
     HttpClientModule,
-    RouterModule.forRoot(appRoutes),
     GraphQLModule,
     MaterialModule,
     BrowserAnimationsModule,
+    RootRouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

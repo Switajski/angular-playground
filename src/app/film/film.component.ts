@@ -12,7 +12,7 @@ import { Film, Query } from './types';
   template: `<h3>Films</h3>
   <div class="flex">
     <mat-card class="h-spaced" *ngFor="let film of films | async">
-      <p>{{film.episodeId | romanize}} {{film.title}} <br/>
+      <p><b>{{film.episodeId | romanize}}. {{film.title}} </b><br/>
       by {{film.director}} <br/>
       from {{film.releaseDate | date: "yyyy"}}</p>
       Occuring Planets:
