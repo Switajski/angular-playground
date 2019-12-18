@@ -17,11 +17,10 @@ The form creates a json on a s3 bucket
 
 ✔︎ FLEX!!! - Cool Game: https://flexboxfroggy.com
 ✔︎ Flexing planet detail page without media queries
+✔︎ Loading indicator!
 Menu for Mobile
 use MatSnackBar for Message Alerts
 
 ### Redux for Angular with @Effect
-
-Loading indicator!
 
 ### Generation of Types by GraphQL Schema

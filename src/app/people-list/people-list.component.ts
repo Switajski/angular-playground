@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PeopleService, Something } from '../people.service';
+import { Observable } from 'rxjs'
 
 @Component({
   selector: 'app-people-list',
@@ -7,13 +8,11 @@ import { PeopleService, Something } from '../people.service';
   styleUrls: ['./people-list.component.scss']
 })
 export class PeopleListComponent implements OnInit {
-  people: Something[];
+  people$: Observable<Something[]>;
 
   constructor(private peopleService: PeopleService) { }
 
   ngOnInit() {
-    this.peopleService.getPeopleCached()
-      .subscribe(p => this.people = p);
+    this.people$ = this.peopleService.getPeopleCached();
   }
-
 }
